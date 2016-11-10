@@ -7,8 +7,8 @@ import org.junit.Test;
 
 /**
  * Unit-tests for {@link NumberOfOnBits}}
+ * 
  * @author idivyas
- *
  */
 public class NumberOfOnBitsTest {
 
@@ -16,7 +16,8 @@ public class NumberOfOnBitsTest {
 	public void testOnBits()
 	{
 		NumberOfOnBits number=new NumberOfOnBits();
-		assertEquals(1,	number.onBits(16));
-		assertEquals(3, number.onBits(7));
+		assertEquals(0,	number.onBits(0b00000000));
+		assertEquals(4,	number.onBits(0b01010101));
+		assertEquals(3, number.onBits(0b00101010));
 	}
 }
