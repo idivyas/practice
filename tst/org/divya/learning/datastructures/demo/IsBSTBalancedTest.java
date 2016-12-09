@@ -26,7 +26,7 @@ public class IsBSTBalancedTest {
 		IsBSTBalanced balance=new IsBSTBalanced();
 		assertTrue(balance.isBalanced(tree));
 	}
-	
+
 	@Test
 	public void testForUnBalancedTree()
 	{
@@ -42,5 +42,23 @@ public class IsBSTBalancedTest {
 		tree.insert(1);
 		IsBSTBalanced balance=new IsBSTBalanced();
 		assertFalse(balance.isBalanced(tree));
+	}
+
+	@Test
+	public void testForEmptyTree()
+	{
+		BinarySearchTree<Integer> tree=new BinarySearchTree<>();
+		IsBSTBalanced balance=new IsBSTBalanced();
+		assertTrue(balance.isBalanced(tree));
+	}
+	
+
+	@Test
+	public void testForSingleNode()
+	{
+		BinarySearchTree<Integer> tree=new BinarySearchTree<>();
+		tree.insert(4);
+		IsBSTBalanced balance=new IsBSTBalanced();
+		assertTrue(balance.isBalanced(tree));
 	}
 }

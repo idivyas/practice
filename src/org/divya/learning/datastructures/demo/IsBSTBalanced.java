@@ -23,12 +23,19 @@ import org.divya.learning.datastructures.BinarySearchTreeNode;
  * @author idivyas
  */
 public class IsBSTBalanced {
+	
+	public static class UnbalancedTreeException extends RuntimeException {
+		private static final long serialVersionUID = 1L;
+	}
 
 	public boolean isBalanced(BinarySearchTree<?> tree)
 	{
-		int value=check(tree.getRoot(),tree);
-		boolean result=value>1 ? false :true;
-		return result;
+		try {
+			check(tree.getRoot(),tree);
+			return true;
+		} catch (UnbalancedTreeException e) {
+			return false;
+		}
 	}
 
 	public int check(BinarySearchTreeNode<?> current,BinarySearchTree<?> tree)
@@ -51,7 +58,7 @@ public class IsBSTBalanced {
 		int diff=leftHeight-rightHeight;
 		if(diff > 1 || diff < -1)  // BUG: What if leftHeight is > rightHeight.
 		{
-			return diff;
+			throw new UnbalancedTreeException();
 		}
 		else
 		{
